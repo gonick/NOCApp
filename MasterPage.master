@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <section id="SectionHead">
+        <div id="container">
+            <div class="blur">
+            </div>
+
+            <div id="header">
+
+                <div id="name">
+                    <p>NOC APPLICATION FOR PETROL PUMP</p>
+                </div>
+
+                <div class="menu">
+
+                    <a href="Default.aspx">HOME</a>
+                    <a href="About.html">ABOUT</a>
+                    <a href="Login.aspx">LOGIN/SIGN UP</a>
+                    <a href="#4">USER MANUAL</a>
+                    <a href="Contact.html">CONTACT US</a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+</html>

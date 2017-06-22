@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+function initialize() {
+  var myLatLng = new google.maps.LatLng(31.5833, 75.9833);
+  var mapOptions = {
+    zoom: 12,
+    center: myLatLng,
+    mapTypeId: google.maps.MapTypeId.Roadmap
+  };
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+ //Initial coordinates
+  var triangleCoords = [
+    new google.maps.LatLng(31.5833, 75.9833),
+    new google.maps.LatLng(31.5733, 75.9733),
+    new google.maps.LatLng(31.6633, 75.9633)
+  ];
+  
+  myPolygon = new google.maps.Polygon({
+    paths: triangleCoords,
+    draggable: true, 
+    editable: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35
+  });
+
+  myPolygon.setMap(map);
+  
+  google.maps.event.addListener(myPolygon.getPath(), "insert_at", getPolygonCoords);
+  
+  google.maps.event.addListener(myPolygon.getPath(), "set_at", getPolygonCoords);
+}
+
+//Display Coordinates below map
+function getPolygonCoords() {
+  var len = myPolygon.getPath().getLength();
+  var htmlStr = "";
+  for (var i = 0; i < len; i++) {
+    htmlStr += myPolygon.getPath().getAt(i).toUrlValue(5) + "\n";
+	
+   
+  }
+  document.getElementById('send').innerHTML = htmlStr;
+}
+</script>
+</head>
+<style>
+body{
+  background: #333;
+}
+h3{
+  margin: 4px 0;
+  padding: 5px 0;
+  font-family: arial, sans-serif;
+  width: 100%;
+  color: #fff;}
+  a{
+    color: #00B2EE;
+    text-decoration: none;}
+    &:hover{
+      color: lighten(#00B2EE, 20%);
+}
+#map-canvas{
+  width: auto;
+  height: 500px;}
+	  
+#info{
+  color: #ffc;}
+.lngLat{
+  color: #fff;
+}
+.one{
+    padding-left: 210px;}
+  .two {
+    padding-left: 50px;}
+#info, .lngLat{
+  font-family: arial, sans-serif;
+  font-size: 18px;
+  padding-top: 10px;
+  ;
+}
+#info{
+	padding-left:200px
+}
+.lngLat{
+	padding-left:500px;
+}
+</style>
+<body>
+<body onload="initialize()">
+  <h3>Drag or reshape to see the coordinates at the down of the map</h3>
+  
+  <div id="map-canvas"></div>
+  <div class="lngLat"><span class="one">Lat</span><span class="two">,Lng</span></div>
+  <div id="info">
+  <form action="sitemap.html" id="form">
+  <center>
+  <textarea rows="4" cols="50" id="send">  
+</textarea><br>
+<input type="submit" value="SAVE COORDINATES"></center>
+</form>
+  
+  </div>
+</body>
+</div>
+</body>
+</html>
