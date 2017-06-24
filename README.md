@@ -1,9 +1,12 @@
 # NOCApp
-Clone or download the repository.
-Open visual studio
-File -> Open Website
-Select NOCApp Folder and click ok, the solution will load.
-Click on Run.
+Application streamlines the procedure of issuing NOCs for Petrol Pump/LPG distribution ship. This application ensures that the entire information related to issuance of NOCs is available in public domain and has simplified the process of issuing NOCs.
+
+To use the application download or clone the application.
+1. Clone or download the application.
+2. Open visual studio
+2. File -> Open Website
+3. Select NOCApp Folder and click ok, the solution will load.
+4. Click on Run.
 
 ## Applicant
 There is a Registeration screen for the applicant to register
